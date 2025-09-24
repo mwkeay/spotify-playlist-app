@@ -1,9 +1,10 @@
-export default function Playlist({
-    params: { id },
+export default async function Playlist({
+    params,
 }: Readonly<{
-    params: { id: string },
+    params: Promise<{ id: string }>
 }>
 ) {
+    const { id } = await params;
 	return (
 		<div>
 			<main className="h-screen flex flex-col items-center justify-center">
