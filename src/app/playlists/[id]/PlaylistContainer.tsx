@@ -12,11 +12,11 @@ export default async function PlaylistContainer({
     const playlistPromise = fetchPlaylist(id, "name");
 	return (
         <main className="h-screen flex flex-col items-center justify-center">
-            <h1 className="font-sans">
-                Hello World!
-            </h1>
             <p className="font-mono pb-8">
-                {`playlist_id: ${id}`}
+                <span className="font-mono bg-gray-700 px-1 rounded">
+                    playlist_id
+                </span>
+                {`: ${id}`}
             </p>
             <Suspense fallback={<p>Loading...</p>}>
                 <PlaylistMeta dataPromise={playlistPromise} />
