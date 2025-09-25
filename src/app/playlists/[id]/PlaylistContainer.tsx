@@ -9,11 +9,11 @@ export default async function PlaylistContainer({
 }>
 ) {
     const { id } = await params;
-    const playlistPromise = fetchPlaylist(id, "name");
+    const playlistPromise = fetchPlaylist(id, "name,description,images");
 	return (
-        <main className="h-screen flex flex-col items-center justify-center">
-            <p className="font-mono pb-8">
-                <span className="font-mono bg-gray-700 px-1 rounded">
+        <main className="h-screen flex flex-col items-center justify-center gap-8">
+            <p className="font-mono">
+                <span className="font-mono bg-card-background px-1 rounded">
                     playlist_id
                 </span>
                 {`: ${id}`}
