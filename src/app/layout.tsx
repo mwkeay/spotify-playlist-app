@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 // Standard font
-const interSans = Inter({
-	variable: "--font-inter-sans",
+const geistSans = Geist({
+	variable: "--font-geist-sans",
 	subsets: ["latin"],
 });
 
 // Numeric font
-const openSans = Open_Sans({
-	variable: "--font-open-sans",
+const geistMono = Geist_Mono({
+	variable: "--font-geist-mono",
 	subsets: ["latin"],
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${interSans.variable} ${openSans.variable} antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				{children}
 			</body>
