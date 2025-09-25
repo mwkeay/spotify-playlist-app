@@ -1,6 +1,6 @@
 "use server";
 
-import { getClientCredentialsToken } from "@/lib/auth/client-credentials";
+import { getClientCredentialsToken } from "@/lib/spotify-client-credentials";
 import formatServerActionError, { ServerActionError } from "@/lib/formatServerActionError";
 import Logger from "@/lib/logger";
 
