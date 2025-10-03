@@ -6,7 +6,7 @@ const fetchPlaylist = async (
     playlistId: string,
     fields: string,
 ): Promise<{
-    playlist?: any,
+    playlist?: unknown,
     error?: ServerActionError,
 }> => {
     try {

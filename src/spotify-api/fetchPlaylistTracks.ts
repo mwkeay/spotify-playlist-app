@@ -6,7 +6,7 @@ const fetchPlaylistTracks = async (
     playlistId: string,
     fields: string,
 ): Promise<{
-    items?: any[],
+    items?: unknown[],
     total?: number,
     error?: ServerActionError,
 }> => {
@@ -19,7 +19,7 @@ const fetchPlaylistTracks = async (
             const url = new URL(`https://api.spotify.com/v1/playlists/${ playlistId }/tracks`);
             url.searchParams.append("fields", fields);
             url.searchParams.append("offset", offset.toString());
-            url.searchParams.append("limit", "100")
+            url.searchParams.append("limit", "100");
 
             const response = await fetch(url.toString(), {
                 method: "GET",
