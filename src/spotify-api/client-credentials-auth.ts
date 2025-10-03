@@ -1,5 +1,5 @@
 import Logger from "@/lib/logger";
-import spotifyConfig from "@/config/spotify";
+import spotifyConfig from "@/spotify-api/config";
 
 /**
  * ===================
