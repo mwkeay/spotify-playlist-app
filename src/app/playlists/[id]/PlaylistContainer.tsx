@@ -1,7 +1,7 @@
-import fetchPlaylist from "@/app/actions/fetchPlaylist";
+import fetchPlaylist from "@/spotify-api/fetchPlaylist";
 import PlaylistMeta from "./PlaylistMeta";
 import { Suspense } from "react";
-import fetchPlaylistTracks from "@/app/actions/fetchPlaylistTracks";
+import fetchPlaylistTracks from "@/spotify-api/fetchPlaylistTracks";
 import PlaylistTable from "./PlaylistTable";
 
 export default async function PlaylistContainer({

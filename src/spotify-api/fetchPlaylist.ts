@@ -1,5 +1,3 @@
-"use server";
-
 import { getClientCredentialsToken } from "@/spotify-api/client-credentials-auth";
 import formatServerActionError, { ServerActionError } from "@/lib/formatServerActionError";
 import Logger from "@/lib/logger";
