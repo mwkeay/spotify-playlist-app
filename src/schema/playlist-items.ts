@@ -1,6 +1,6 @@
 import * as z from "zod";
+import zodSchemaToSpotifyFields from "./zodSchemaToSpotifyFields";
 
-// MUST stay persistent with defined fields in API requests
 const PlaylistItemsSchema = z.object({
     album: z.object({
         name: z.string(),
@@ -24,5 +24,7 @@ const PlaylistItemsSchema = z.object({
     })),
     total: z.int(),
 });
+
+export const PLAYLIST_ITEMS_FIELDS = zodSchemaToSpotifyFields(PlaylistItemsSchema);
 
 export default PlaylistItemsSchema;
