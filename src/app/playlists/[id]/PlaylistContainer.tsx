@@ -11,8 +11,8 @@ export default async function PlaylistContainer({
 }>
 ) {
     const { id } = await params;
-    const playlistPromise = fetchPlaylist(id, "name,description,images");
-    const playlistTracksPromise = fetchPlaylistTracks(id, "total,items(track(name,duration_ms,artists(name),album(name)))");
+    const playlistPromise = fetchPlaylist(id, "description,images,name");
+    const playlistTracksPromise = fetchPlaylistTracks(id, "items(track(album(name,images),artists(name),duration_ms,name)),total");
 	return (
         <main className="h-screen flex flex-col items-center justify-center gap-8">
             <p className="font-mono">
