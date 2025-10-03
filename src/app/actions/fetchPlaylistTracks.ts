@@ -8,7 +8,8 @@ const fetchPlaylistTracks = async (
     playlistId: string,
     fields: string,
 ): Promise<{
-    items?: any,
+    items?: any[],
+    total?: number,
     error?: ServerActionError,
 }> => {
     try {
@@ -51,7 +52,10 @@ const fetchPlaylistTracks = async (
         remainingPages.forEach(({ items: pageItems }) => items.push(...pageItems));
 
         // Return to client
-        return { items };
+        return {
+            items,
+            total
+        };
     }
     catch (error) {
         Logger.error("Server action fetchAllPlaylistTracks failed", error); // Log error server-side
