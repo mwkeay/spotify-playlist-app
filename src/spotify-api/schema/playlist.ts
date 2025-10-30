@@ -1,5 +1,4 @@
 import * as z from "zod";
-import zodSchemaToSpotifyFields from "./zodSchemaToSpotifyFields";
 
 const PlaylistSchema = z.object({
     description: z.string(),
@@ -11,6 +10,6 @@ const PlaylistSchema = z.object({
     name: z.string(),
 });
 
-export const PLAYLIST_FIELDS = zodSchemaToSpotifyFields(PlaylistSchema);
+export const PLAYLIST_FIELDS = "description,images,name";
 
 export default PlaylistSchema;

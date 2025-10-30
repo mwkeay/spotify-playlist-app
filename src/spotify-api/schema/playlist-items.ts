@@ -1,5 +1,4 @@
 import * as z from "zod";
-import zodSchemaToSpotifyFields from "./zodSchemaToSpotifyFields";
 
 const PlaylistTrackSchema = z.object({
     album: z.object({
@@ -42,6 +41,6 @@ const PlaylistItemsSchema = z.object({
     total: z.int(),
 });
 
-export const PLAYLIST_ITEMS_FIELDS = zodSchemaToSpotifyFields(PlaylistItemsSchema);
+export const PLAYLIST_ITEMS_FIELDS = "items(track(album(name,images),artists(name),duration_ms,images,name,show(name),type),total";
 
 export default PlaylistItemsSchema;
