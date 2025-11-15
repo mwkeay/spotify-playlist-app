@@ -1,8 +1,8 @@
-import fetchPlaylist from "@/spotify-api/requests/fetchPlaylist";
 import PlaylistMeta from "./PlaylistMeta";
 import { Suspense } from "react";
-import fetchPlaylistTracks from "@/spotify-api/requests/fetchPlaylistTracks";
 import PlaylistTable from "./PlaylistTable";
+import fetchSpotifyPlaylistItems from "@/spotify-api/requests/fetchSpotifyPlaylistItems";
+import fetchSpotifyPlaylist from "@/spotify-api/requests/fetchSpotifyPlaylist";
 
 export default async function PlaylistContainer({
     params,
@@ -11,8 +11,8 @@ export default async function PlaylistContainer({
 }>
 ) {
     const { id } = await params;
-    const playlistPromise = fetchPlaylist(id, "description,images,name");
-    const playlistTracksPromise = fetchPlaylistTracks(id, "items(track(album(name,images),artists(name),duration_ms,name)),total");
+    const playlistPromise = fetchSpotifyPlaylist(id, "description,images,name");
+    const playlistTracksPromise = fetchSpotifyPlaylistItems(id);
 	return (
         <main className="h-screen flex flex-col items-center justify-center gap-8">
             <p className="font-mono">

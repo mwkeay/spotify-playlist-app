@@ -1,18 +1,14 @@
 "use client";
 
-import { ServerActionError } from "@/lib/formatServerActionError";
 import PlaylistTableBody from "./PlaylistTableBody";
 import PlaylistTableHead from "./PlaylistTableHead";
-import { use, useMemo } from "react";
+import { use } from "react";
+import { SpotifyPlaylistItemsData } from "@/spotify-api/schema/spotify-playlist-items";
 
 export default function PlaylistTable({
     playlistTracksPromise,
 }: Readonly<{
-    playlistTracksPromise: Promise<{
-        items?: any[],
-        total?: number,
-        error?: ServerActionError,
-    }>,
+    playlistTracksPromise: Promise<SpotifyPlaylistItemsData>,
 }>) {
     const { items } = use(playlistTracksPromise);
     return (

@@ -1,11 +1,12 @@
+import { SpotifyPlaylistData } from "@/spotify-api/schema/spotify-playlist";
 import Image from "next/image";
 
 export default async function PlaylistMeta({
     playlistPromise,
 }: Readonly<{
-    playlistPromise: Promise<any>,
+    playlistPromise: Promise<SpotifyPlaylistData>,
 }>) {
-    const { playlist } = await playlistPromise;
+    const playlist = await playlistPromise;
 	return (
 		<div className="flex gap-2 p-2 rounded items-center bg-card-background">
             <div className="h-8 w-8">
