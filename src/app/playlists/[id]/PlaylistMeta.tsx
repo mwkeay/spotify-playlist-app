@@ -6,21 +6,21 @@ export default async function PlaylistMeta({
 }: Readonly<{
     playlistPromise: Promise<SpotifyPlaylistData>,
 }>) {
-    const playlist = await playlistPromise;
+    const playlistData = await playlistPromise;
 	return (
 		<div className="flex gap-2 p-2 rounded items-center bg-card-background">
             <div className="h-8 w-8">
                 <Image
-                    src={playlist.images[0].url}
+                    src={playlistData.images[0].url}
                     width={0}
                     height={0}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }}
-                    alt={`Cover art for playlist ${playlist.name ?? "undefined"}`}
+                    alt={`Cover art for playlist ${playlistData.name ?? "undefined"}`}
                 />
             </div>
             <p className="font-sans">
-                {playlist.name}
+                {playlistData.name}
             </p>
 		</div>
 	);

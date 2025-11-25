@@ -24,13 +24,17 @@ const SpotifyPlaylistEpisodeSchema = z.object({
     type: z.literal("episode"),
 })
 
+export const SpotifyPlaylistItemSchema = z.object({
+    track: z.discriminatedUnion("type", [
+        SpotifyPlaylistTrackSchema,
+        SpotifyPlaylistEpisodeSchema
+    ])
+});
+
+export type SpotifyPlaylistItemData = z.infer<typeof SpotifyPlaylistItemSchema>;
+
 export const SpotifyPlaylistItemsSchema = z.object({
-    items: z.array(z.object({
-        track: z.discriminatedUnion("type", [
-            SpotifyPlaylistTrackSchema,
-            SpotifyPlaylistEpisodeSchema
-        ])
-    })),
+    items: z.array(SpotifyPlaylistItemSchema),
     total: z.int(),
 });
 

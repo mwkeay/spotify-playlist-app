@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
 		ppr: "incremental",
 	},
 	images: {
-		remotePatterns: [new URL("https://image-cdn-ak.spotifycdn.com/image/**")],
+		remotePatterns: [
+			new URL("https://image-cdn-ak.spotifycdn.com/image/**"),
+			new URL("https://image-cdn-fa.spotifycdn.com/image/**"),
+		],
 	},
 };
 

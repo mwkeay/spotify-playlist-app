@@ -14,7 +14,7 @@ export default async function PlaylistContainer({
     const playlistPromise = fetchSpotifyPlaylist(id, "description,images,name");
     const playlistTracksPromise = fetchSpotifyPlaylistItems(id);
 	return (
-        <main className="h-screen flex flex-col items-center justify-center gap-8">
+        <main className="flex flex-col items-center justify-center py-16 gap-8">
             <p className="font-mono">
                 <span className="font-mono bg-card-background px-1 rounded">
                     playlist_id

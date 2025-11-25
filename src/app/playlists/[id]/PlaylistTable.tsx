@@ -10,11 +10,14 @@ export default function PlaylistTable({
 }: Readonly<{
     playlistTracksPromise: Promise<SpotifyPlaylistItemsData>,
 }>) {
-    const { items } = use(playlistTracksPromise);
+    const { items: itemsData } = use(playlistTracksPromise);
     return (
-        <table className="flex flex-col outline outline-border">
+        <table className={
+            "flex w-full flex-col font-sans"
+            //+ " outline outline-blue-500 [&_*]:outline [&_*]:outline-red-500" 
+        }>
             <PlaylistTableHead />
-            <PlaylistTableBody items={items ?? []} />
+            <PlaylistTableBody items={itemsData} />
         </table>
     );
 }
