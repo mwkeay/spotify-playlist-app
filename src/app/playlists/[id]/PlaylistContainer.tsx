@@ -1,8 +1,5 @@
-import PlaylistMeta from "./PlaylistMeta";
-import { Suspense } from "react";
 import PlaylistTable from "./PlaylistTable";
 import fetchSpotifyPlaylistItems from "@/spotify-api/requests/fetchSpotifyPlaylistItems";
-import fetchSpotifyPlaylist from "@/spotify-api/requests/fetchSpotifyPlaylist";
 
 export default async function PlaylistContainer({
     params,
@@ -11,20 +8,22 @@ export default async function PlaylistContainer({
 }>
 ) {
     const { id } = await params;
-    const playlistPromise = fetchSpotifyPlaylist(id, "description,images,name");
     const playlistTracksPromise = fetchSpotifyPlaylistItems(id);
 	return (
-        <main className="flex flex-col items-center justify-center py-16 gap-8">
-            <p className="font-mono">
-                <span className="font-mono bg-card-background px-1 rounded">
-                    playlist_id
-                </span>
-                {`: ${id}`}
-            </p>
-            <Suspense fallback={<p>Loading...</p>}>
-                <PlaylistMeta playlistPromise={playlistPromise} />
-            </Suspense>
-            <PlaylistTable playlistTracksPromise={playlistTracksPromise} />
+        <main className="flex h-screen">
+            <div className="w-[50%] flex flex-col items-center gap-8 py-16 bg-card-background">
+                <p className="font-mono">
+                    <span className="font-mono bg-background px-1 rounded">
+                        playlist_id
+                    </span>
+                    <span className="font-mono text-card-foreground">
+                        {`: ${id}`}
+                    </span>
+                </p>
+            </div>
+            <div className="w-[50%] overflow-scroll flex flex-col gap-8 items-center py-8 scroll-pane">
+                <PlaylistTable playlistTracksPromise={playlistTracksPromise} />
+            </div>
         </main>
 	);
 }

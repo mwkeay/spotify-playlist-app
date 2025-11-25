@@ -8,8 +8,8 @@ export default async function PlaylistMeta({
 }>) {
     const playlistData = await playlistPromise;
 	return (
-		<div className="flex gap-2 p-2 rounded items-center bg-card-background">
-            <div className="h-8 w-8">
+		<div className="flex gap-4 px-4 py-2 rounded-2xl items-center bg-card-background">
+            <div className="h-12 w-12">
                 <Image
                     src={playlistData.images[0].url}
                     width={0}
@@ -19,7 +19,7 @@ export default async function PlaylistMeta({
                     alt={`Cover art for playlist ${playlistData.name ?? "undefined"}`}
                 />
             </div>
-            <p className="font-sans">
+            <p className="font-sans text-xl">
                 {playlistData.name}
             </p>
 		</div>

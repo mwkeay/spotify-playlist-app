@@ -31,7 +31,7 @@ function PlaylistTableRow({
     return (
         <tr
             key={index + 1}
-            className="flex px-16 py-2 gap-2 hover:outline"
+            className="flex px-8 py-2 gap-2 transition border border-transparent hover:border-white hover:shadow hover:shadow-white/20"
         >
             {/** Index */}
             <td className="flex w-10 overflow-hidden">
@@ -40,21 +40,15 @@ function PlaylistTableRow({
                 </p>
             </td>
             {/** Title */}
-            <td className="flex flex-4 overflow-hidden">
+            <td className="flex flex-2 overflow-hidden">
                 <p className="truncate">
                     {item.track.name}
                 </p>
             </td>
             {/** Album or podcast */}
-            <td className="flex flex-2 overflow-hidden">
-                <p className="truncate">
-                    {item.track.type === "track" ? item.track.album.name : item.track.show.name }
-                </p>
-            </td>
-            {/** Hello World! */}
             <td className="flex flex-1 overflow-hidden">
                 <p className="truncate">
-                    Hello World!
+                    {item.track.type === "track" ? item.track.album.name : item.track.show.name }
                 </p>
             </td>
             {/** Duration */}
